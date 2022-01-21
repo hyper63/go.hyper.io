@@ -58,6 +58,6 @@ export const graphql = async (req: Request) =>
 
 
 export const shortcut = async (code: string) => {
-  let result = await hyper.data.get<Shortcut>(code) as Shortcut;
+  const result = await hyper.data.get<Shortcut>(code) as Shortcut;
   return result.href;
 };
