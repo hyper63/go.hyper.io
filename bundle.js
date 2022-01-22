@@ -28228,9 +28228,9 @@ const shortcut = async (code34)=>{
     const result = await hyper1.data.get(code34);
     return result.href;
 };
-const app_html = await Deno.readTextFile('./app.html');
-const app_css = await Deno.readTextFile('./app.css');
-const app_js = await Deno.readTextFile('./app.js');
+const app_html = await Deno.readTextFile('./public/index.html');
+const app_css = await Deno.readTextFile('./public/build/bundle.css');
+const app_js = await Deno.readTextFile('./public/build/bundle.js');
 serve({
     '/': ()=>new Response(app_html, {
             headers: {
