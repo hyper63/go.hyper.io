@@ -28301,14 +28301,18 @@ const importMeta = {
     url: "file:///workspace/go.hyper.io/mod.ts",
     main: import.meta.main
 };
+const index_html = await Deno.readTextFile('./app.html');
 serve({
-    '/': serveStatic("app.html", {
+    '/': ()=>new Response(index_html, {
+            headers: {
+                'content-type': 'text/html'
+            }
+        })
+    ,
+    '/build/bundle.css': serveStatic("src/app.css", {
         baseUrl: importMeta.url
     }),
-    '/build/bundle.css': serveStatic("app.css", {
-        baseUrl: importMeta.url
-    }),
-    '/build/bundle.js': serveStatic("app.js", {
+    '/build/bundle.js': serveStatic("src/app.js", {
         baseUrl: importMeta.url
     }),
     '/graphql': graphql1,
