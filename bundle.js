@@ -28302,13 +28302,13 @@ const importMeta = {
     main: import.meta.main
 };
 serve({
-    '/': serveStatic("public/index.html", {
+    '/': serveStatic("app.html", {
         baseUrl: importMeta.url
     }),
-    '/build/bundle.css': serveStatic("public/build/bundle.css", {
+    '/build/bundle.css': serveStatic("app.css", {
         baseUrl: importMeta.url
     }),
-    '/build/bundle.js': serveStatic("public/build/bundle.js", {
+    '/build/bundle.js': serveStatic("app.js", {
         baseUrl: importMeta.url
     }),
     '/graphql': graphql1,
